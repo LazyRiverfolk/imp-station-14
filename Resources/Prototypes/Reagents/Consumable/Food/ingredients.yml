@@ -133,14 +133,13 @@
       - !type:AdjustReagent
         reagent: Water
         amount: 0.4
-      - !type:AdjustReagent
-        reagent: Vitamin
-        amount: 0.1
+      - !type:SatiateHunger
+        factor: 0.4 
       - !type:ChemVomit
-        probability: 0.1
         conditions:
-          - !type:ReagentThreshold
-            min: 6
+        - !type:ReagentThreshold
+          min: 6
+        probability: 0.1 #Cleaned up + Made consistent with other sources of Condiment Vomit (IMP)
 
 - type: reagent
   id: Rice
@@ -174,9 +173,13 @@
   metabolisms:
     Food:
       effects:
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.75
+      - !type:SatiateHunger
+        factor: 1.75
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        probability: 0.1 # Oil makes you puke, but also sates you. (IMP)
 
 - type: reagent
   id: Oil
@@ -208,9 +211,13 @@
   metabolisms:
     Food:
       effects:
-      - !type:AdjustReagent
-        reagent: Nutriment #Oils enhance nutrition
-        amount: 0.75
+      - !type:SatiateHunger
+        factor: 1.75
+      - !type:HealthChange
+        probability: 0.6
+        damage:
+          types:
+            Cold: -1 # 60% chance to heal 1 cold. Without doing damage, that's up to -10 cold per 5u.
     Poison:
       effects:
         - !type:AdjustTemperature

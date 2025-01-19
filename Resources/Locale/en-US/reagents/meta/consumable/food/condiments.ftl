@@ -29,7 +29,7 @@ reagent-name-mayo = mayonnaise
 reagent-desc-mayo = Creamy sauce, made from oil, egg, and some (edible) acid.
 
 reagent-name-mustard = mustard
-reagent-desc-mustard = Basic yellow mustard, made from the seeds of the mustard plant.
+reagent-desc-mustard = Basic yellow mustard, made from the seeds of the mustard plant. Or so they'd tell you.
 
 reagent-name-vinaigrette = vinaigrette
 reagent-desc-vinaigrette = A basic salad dressing made with oil, vinegar and seasoning.

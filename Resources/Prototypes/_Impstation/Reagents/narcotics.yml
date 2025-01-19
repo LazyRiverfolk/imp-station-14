@@ -39,3 +39,37 @@
           - "foreverweed-effect-centcomm"
           - "foreverweed-effect-centcomm-paranoia"
         probability: 0.01
+
+- type: reagent
+  id: hyposucrosium
+  name: reagent-name-hyposucrosium 
+  group: Narcotics
+  desc: reagent-desc-hyposucrosium 
+  physicalDesc: reagent-physical-desc-heterogeneous
+  flavor: sweet
+  color: "#9c9c9c"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.2
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        walkSpeedModifier: 0.95
+        sprintSpeedModifier: 0.95
+      - !type:PopupMessage
+         visualType: Medium
+         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+         type: Local
+         probability: 0.10
+      - !type:AdjustReagent
+         conditions:
+         - !type:ReagentThreshold
+           reagent: Sugar
+           min: 0.01
+         reagent: hyposucrosium # Self replicating while sugar's active in the system.
+         amount: 0.5
